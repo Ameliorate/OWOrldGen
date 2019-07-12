@@ -1,5 +1,6 @@
 package dev.civmc.oworldgen
 
+import org.bukkit.generator.ChunkGenerator
 import org.bukkit.plugin.java.JavaPlugin
 
 class OWOrldGen: JavaPlugin() {
@@ -11,6 +12,11 @@ class OWOrldGen: JavaPlugin() {
 	}
 	
 	override fun onEnable() {
+		saveDefaultConfig()
 		instanceStorage = this
+	}
+
+	override fun getDefaultWorldGenerator(worldName: String, id: String): ChunkGenerator {
+        return WorldGenerator(config.getConfigurationSection(worldName))
 	}
 }

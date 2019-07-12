@@ -2,3 +2,4 @@ name: ${name}
 version: ${version}
 main: ${groupId}.${name}
 author: Amelorate
+load: STARTUP
